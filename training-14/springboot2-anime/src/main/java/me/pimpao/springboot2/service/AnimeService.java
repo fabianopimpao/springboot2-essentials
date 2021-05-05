@@ -10,19 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class AnimeService {
     private final AnimeRepository animeRepository;
-
-    private static List<Anime> animes;
-
-    static {
-        animes = new ArrayList<>(List.of(new Anime(1L, "DBZ"), new Anime(2L, "Samurai X"), new Anime(3L, "Naruto")));
-    }
 
     public List<Anime> listAll() {
         return animeRepository.findAll();
